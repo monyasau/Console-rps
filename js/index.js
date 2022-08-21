@@ -4,41 +4,65 @@ let getComputerChoice = () => {
   return result;
 };
 
+let score = {
+  player: 0,
+  computer: 0,
+};
+
+let evaluate = (pChoice) => {
+  const cChoice = getComputerChoice();
+  if (pChoice === cChoice) {
+    console.log("computer chose", cChoice);
+    console.log("tie");
+  } else if (pChoice === "rock" && cChoice === "paper") {
+    console.log("computer chose", cChoice);
+    console.log("computer win, player lose");
+    score.computer=+1
+    console.log(score);
+  } else if (pChoice === "rock" && cChoice === "scissors") {
+    console.log("computer chose", cChoice);
+    console.log("player win, computer lose");
+    score.player=+1
+    console.log(score);
+  } else if (pChoice === "paper" && cChoice === "rock") {
+    console.log("computer chose", cChoice);
+    console.log("player win, computer lose");
+    score.player=+1
+    console.log(score);
+  } else if (pChoice === "paper" && cChoice === "scissors") {
+    console.log("computer chose", cChoice);
+    console.log("computer win, player lose");
+    score.computer=+1
+    console.log(score);
+  } else if (pChoice === "scissors" && cChoice === "rock") {
+    console.log("computer chose", cChoice);
+    console.log("computer win, player lose");
+    score.computer=+1
+    console.log(score);
+  } else if (pChoice === "scissors" && cChoice === "paper") {
+    console.log("computer chose", cChoice);
+    console.log("player win, computer lose");
+    score.player=+1
+    console.log(score);
+  }
+};
 let playRound = (playerSelection, computerSelection) => {
   let pSelection = playerSelection.toLowerCase();
-  console.log(pSelection);
-
-let evaluate=(pChoice) =>{
-
-}
-
   switch (pSelection) {
     case "rock":
+      console.log("player entered rock");
       evaluate("rock");
       break;
     case "paper":
+      console.log("player entered paper");
       evaluate("paper");
-      
+
       break;
     case "scissors":
+      console.log("player entered scissors");
       evaluate("scissors");
+      break;
   }
-
-  //  if (pSelection = "") {
-  // console.log("try again you didn't input anything");
-  // }
-  // if ((pSelection = computerSelection)) {
-  //   console.log("Tie!");
-  // } else
-  //  if ((pSelection = "rock") && (computerSelection = "scissors")) {
-  //   console.log("Win! Rock beats scissors");
-  // } else if ((pSelection = "scissors") && (computerSelection = "paper")) {
-  //   console.log("Win! scissors beats paper");
-  // } else if ((pSelection = "paper") && (computerSelection = "rock")) {
-  //   console.log("Win! paper beats rock");
-  // }
-  // console.log("ai", computerSelection);
-  // console.log("player", pSelection);
 };
 
 playRound(prompt("pSelect"), getComputerChoice());

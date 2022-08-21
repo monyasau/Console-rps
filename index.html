@@ -1,23 +1,49 @@
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <style>
-        body{
-            font-family: cursive, candara;
-            background-color: #1a1a1a;
-            color: #eee;
-            font-size: 100px;
-            align-items: center;
-            justify-content: center;
-            display: flex;
-        }
+      body {
+        font-family: cursive, candara;
+        background-color: #1a1a1a;
+        color: #eee;
+        font-size: 100px;
+        align-items: center;
+        justify-content: center;
+        display: flex;
+        flex-wrap: wrap;
+      }
+      .flex {
+        display: flex;
+      }
+      .score {
+        padding: 10px;
+        border-radius: 15px;
+        border: #eee 1px solid;
+        width: 50%;
+        font-size: 50%;
+      }
+      .scoreHeader {
+        text-align: center;
+        border-bottom: #eee 1px solid;
+      }
+      #playerScore{
+        margin-left: auto;
+      }
+      #computerScore{
+        margin-left: auto;
+      }
     </style>
     <title>Console game -Rock paper scissors</title>
     <script src="./js/index.js"></script>
-</head>
-<body>
-    Please open your browser console
-</body>
+  </head>
+  <body>
+    <div>Please open your browser console</div>
+    <div class="score">
+      <div class="scoreHeader">Score Board  </div>
+      <div class="flex">Player: <span id="playerScore">0</span></div>
+      <div class="flex">Computer: <span id="computerScore">0</span></div>
+    </div>
+  </body>
 </html>
