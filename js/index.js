@@ -17,33 +17,39 @@ let evaluate = (pChoice) => {
   } else if (pChoice === "rock" && cChoice === "paper") {
     console.log("computer chose", cChoice);
     console.log("computer win, player lose");
-    score.computer=+1
-    console.log(score);
+    score.computer = +1;
+    console.log("Computer's score:", score.computer);
+    console.log("player's score:", score.player);
   } else if (pChoice === "rock" && cChoice === "scissors") {
     console.log("computer chose", cChoice);
     console.log("player win, computer lose");
-    score.player=+1
-    console.log(score);
+    score.player = +1;
+    console.log("Computer's score:", score.computer);
+    console.log("player's score:", score.player);
   } else if (pChoice === "paper" && cChoice === "rock") {
     console.log("computer chose", cChoice);
     console.log("player win, computer lose");
-    score.player=+1
-    console.log(score);
+    score.player = +1;
+    console.log("Computer's score:", score.computer);
+    console.log("player's score:", score.player);
   } else if (pChoice === "paper" && cChoice === "scissors") {
     console.log("computer chose", cChoice);
     console.log("computer win, player lose");
-    score.computer=+1
-    console.log(score);
+    score.computer = +1;
+    console.log("Computer's score:", score.computer);
+    console.log("player's score:", score.player);
   } else if (pChoice === "scissors" && cChoice === "rock") {
     console.log("computer chose", cChoice);
     console.log("computer win, player lose");
-    score.computer=+1
-    console.log(score);
+    score.computer = +1;
+    console.log("Computer's score:", score.computer);
+    console.log("player's score:", score.player);
   } else if (pChoice === "scissors" && cChoice === "paper") {
     console.log("computer chose", cChoice);
     console.log("player win, computer lose");
-    score.player=+1
-    console.log(score);
+    score.player = +1;
+    console.log("Computer's score:", score.computer);
+    console.log("player's score:", score.player);
   }
 };
 let playRound = (playerSelection, computerSelection) => {
@@ -63,6 +69,13 @@ let playRound = (playerSelection, computerSelection) => {
       evaluate("scissors");
       break;
   }
+  setTimeout(() => {
+    let pScoreElem = document.querySelector("#playerScore");
+    let cScoreElem = document.querySelector("#computerScore");
+
+    pScoreElem.innerText = score.player;
+    cScoreElem.innerText = score.computer;
+  }, 150);
 };
 
 playRound(prompt("pSelect"), getComputerChoice());
