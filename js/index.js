@@ -68,6 +68,8 @@ let playRound = (playerSelection, computerSelection) => {
       console.log("player entered scissors");
       evaluate("scissors");
       break;
+      default:
+        console.log("Your spelling is wrong check and try again");
   }
   setTimeout(() => {
     let pScoreElem = document.querySelector("#playerScore");
@@ -76,6 +78,29 @@ let playRound = (playerSelection, computerSelection) => {
     pScoreElem.innerText = score.player;
     cScoreElem.innerText = score.computer;
   }, 150);
+  setTimeout(() => {
+    playRound(prompt("Choose either ROCK,PAPER, or SCISSOR to play"), getComputerChoice());
+  }, 1500);
 };
+let showHelp = () => {
+  document.getElementById("overLay").classList.toggle("show");
+}
+// playRound(prompt("Choose either ROCK,PAPER, or SCISSOR to play"), getComputerChoice());
 
-playRound(prompt("pSelect"), getComputerChoice());
+
+// var x = document.getElementById("myBtn");
+// x.addEventListener("mouseover", myFunction);
+// x.addEventListener("click", mySecondFunction);
+// x.addEventListener("mouseout", myThirdFunction);
+
+// function myFunction() {
+//   document.getElementById("demo").innerHTML += "Moused over!<br>";
+// }
+
+// function mySecondFunction() {
+//   document.getElementById("demo").innerHTML += "Clicked!<br>";
+// }
+
+// function myThirdFunction() {
+//   document.getElementById("demo").innerHTML += "Moused out!<br>";
+// }
