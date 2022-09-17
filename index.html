@@ -1,185 +1,215 @@
 <html lang="en">
-
-<head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <style>
-    body {
-      font-family: cursive, candara;
-      background-color: #1a1a1a;
-      color: #eee;
-      font-size: 100px;
-    }
-
-    main {
-      height: -webkit-fill-available;
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      justify-content: center;
-    }
-
-    img.help-image {
-      margin: 0 10px;
-      height: 40px;
-      width: 40px;
-    }
-
-    .flex {
-      display: flex;
-    }
-
-    .text {
-      font-size: 4rem;
-      padding: 0 30px;
-    }
-
-    @keyframes fade {
-      from {
-        opacity: 1;
-      }
-
-      to {
-        opacity: 0.4;
-        display: none;
-      }
-    }
-
-    @keyframes hide {
-      from {
-        display: block;
-        /* opacity: 100; */
-      }
-
-      to {
-        /* opacity: 0.4; */
-        display: none;
-      }
-    }
-    @keyframes black-white {
-      from{
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      body {
+        font-family: cursive, candara;
         background-color: #1a1a1a;
+        color: #eee;
+        font-size: 100px;
       }
-      to {
-        background-color: #eeeeee;
+
+      main {
+        height: -webkit-fill-available;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
       }
-    }
 
-    .help-image:hover {
-      animation: fade 1s linear 10ms 1 forwards;
-    }
+      img.help-image {
+        margin: 0 10px;
+        height: 40px;
+        width: 40px;
+      }
 
-    .hidden-image {
-      opacity: 0;
-    }
-
-    .hidden-image:hover {
-      display: block;
-    }
-
-    .img-tab {
-      align-items: center;
-      justify-content: start;
-      font-size: 2rem;
-      display: flex;
-    }
-
-    .hidden {
-      animation: hide 1s linear 10ms 1 forwards;
-    }
-
-    .score {
-      padding: 10px;
-      border-radius: 15px;
-      border: #eee 1px solid;
-      width: 50%;
-      font-size: 50%;
-    }
-
-    .scoreHeader {
-      text-align: center;
-      border-bottom: #eee 1px solid;
-    }
-
-    #playerScore {
-      margin-left: auto;
-    }
-
-    #computerScore {
-      margin-left: auto;
-    }
-
-    .show {
-      display: block !important;
-    }
-
-    .fade {
-      animation: fade 1s linear 10ms 1 forwards;
-    }
-
-    #overlay {
-      position: fixed;
-      display: none;
-      width: 100%;
-      height: 100%;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background-color: rgba(0, 0, 0, 0.5);
-      z-index: 2;
-      cursor: pointer;
-    }
-
-    #content {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      font-size: 50px;
-      color: white;
-      transform: translate(-50%, -50%);
-      -ms-transform: translate(-50%, -50%);
-    }
-
-    @media only screen and (max-width: 734px) {
-      .score {
-        width: auto;
-        text-align-last: justify;
+      .flex {
+        display: flex;
       }
 
       .text {
+        font-size: 4rem;
         padding: 0 30px;
-        font-size: 2rem;
       }
-    }
-  </style>
-  <title>Console game -Rock paper scissors</title>
-  <script src="./js/index.js"></script>
-</head>
 
-<body>
-  <div id="overLay" onclick="overLayOff()" class="hidden"></div>
-  <div id="content">
-    <img src="./help-img.png" alt="" />
-  </div>
-  </div>
-  <div class="img-tab" id="helpBtn">
-    Help
-    <img src="./help.png" class="help-image" alt="" onclick="showHelp()" />
+      @keyframes fade {
+        from {
+          opacity: 1;
+        }
 
-    <div id="demo"></div>
-    <!-- Help <img src="./puzzed.png" class="help-image" alt="" /> -->
-  </div>
+        to {
+          opacity: 0.4;
+          display: none;
+        }
+      }
 
-  <main id="main" class="show">
-    <div class="text">Please open your browser console</div>
-    <div class="score">
-      <div class="scoreHeader">Score Board</div>
-      <div class="flex">Player: <span id="playerScore">0</span></div>
-      <div class="flex">Computer: <span id="computerScore">0</span></div>
+      @keyframes hide {
+        from {
+          display: block;
+          opacity: 1;
+        }
+
+        to {
+          opacity: 0.4;
+          display: none;
+        }
+      }
+      @keyframes black-white {
+        from {
+          background-color: #1a1a1a;
+        }
+        to {
+          background-color: #ececec;
+        }
+      }
+      @keyframes white-black {
+        from {
+          background-color: #ececec;
+        }
+        to {
+          background-color: #1a1a1a;
+        }
+      }
+
+      .help-image:hover {
+        animation: fade 1s linear 10ms 1 forwards;
+      }
+
+      .hidden-image {
+        opacity: 0;
+      }
+
+      .hidden-image:hover {
+        display: block;
+      }
+
+      .img-tab {
+        align-items: center;
+        justify-content: start;
+        font-size: 2rem;
+        display: flex;
+      }
+
+      .hidden {
+        animation-name: hide;
+        animation-duration: 3s;
+        display: none;
+      }
+
+      .score {
+        padding: 10px;
+        border-radius: 15px;
+        border: #eee 1px solid;
+        width: 50%;
+        font-size: 50%;
+      }
+
+      .scoreHeader {
+        text-align: center;
+        border-bottom: #eee 1px solid;
+      }
+
+      #playerScore {
+        margin-left: auto;
+      }
+
+      #computerScore {
+        margin-left: auto;
+      }
+
+      .show {
+        display: block !important;
+      }
+
+      .fade {
+        animation: fade 1s linear 10ms 1 forwards;
+      }
+      .black-white {
+        animation-name: black-white;
+        animation-duration: 3s;
+        background-color: #ececec;
+      }
+      .white-black {
+        animation-name: white-black;
+        animation-duration: 3s;
+        background-color: #1a1a1a;
+      }
+      #overlay {
+        position: fixed;
+        display: none;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: rgba(0, 0, 0, 0.5);
+        z-index: 2;
+        cursor: pointer;
+      }
+
+      #content {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        align-content: center;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        font-size: 50px;
+        color: white;
+        transform: translate(-50%, -50%);
+        -ms-transform: translate(-50%, -50%);
+      }
+      .content-text {
+        color: #1a1a1a;
+      }
+      @media only screen and (max-width: 734px) {
+        .score {
+          width: auto;
+          text-align-last: justify;
+        }
+
+        .text {
+          padding: 0 30px;
+          font-size: 2rem;
+        }
+      }
+    </style>
+    <title>Console game -Rock paper scissors</title>
+    <script src="./js/index.js"></script>
+  </head>
+
+  <body class="" id="body">
+    <div id="overLay" onclick="overLayOff()" class="hidden">
+      <div id="content">
+        <img src="./help-img.png" alt="" />
+        <span class="content-text"
+          >To stop playing the game tap the cancel button on the next
+          prompt or type in cancel</span
+        >
+        <span class="content-text"
+          >For a detailed score board open the browser console</span
+        >
+      </div>
     </div>
-  </main>
-</body>
+    <div class="img-tab" id="helpBtn">
+      Help
+      <img src="./help.png" class="help-image" alt="" onclick="showHelp()" />
 
+      <img src="./puzzed.png" class="help-image" alt="" onclick="showHelp()" />
+    </div>
+
+    <main id="main" class="">
+      <div class="text">Please open your browser console</div>
+      <div class="score">
+        <div class="scoreHeader">Score Board</div>
+        <div class="flex">Player: <span id="playerScore">0</span></div>
+        <div class="flex">Computer: <span id="computerScore">0</span></div>
+      </div>
+    </main>
+  </body>
 </html>
